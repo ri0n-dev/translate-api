@@ -6,7 +6,7 @@ Deno.serve(async (req: Request) => {
   let to = url.searchParams.get('to');
 
   if (!text || !to) {
-    return new Response(JSON.stringify({ error: 'Missing text or to parameter' }), {
+    return new Response(JSON.stringify({ error: 'Missing text or to parameter', help: "?text=hello&to=en" }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
