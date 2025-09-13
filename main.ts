@@ -1,7 +1,6 @@
 import { translate } from 'npm:@vitalets/google-translate-api';
-import { serve } from 'std/http/server.ts';
 
-serve(async (req: Request) => {
+Deno.serve(async (req: Request) => {
   const url = new URL(req.url);
   const text = url.searchParams.get('text');
   const to = url.searchParams.get('to');
