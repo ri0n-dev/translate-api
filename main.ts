@@ -1,9 +1,9 @@
-import { translate } from 'npm:@vitalets/google-translate-api';
+import { translate } from '@vitalets/google-translate-api';
 
 Deno.serve(async (req: Request) => {
   const url = new URL(req.url);
   const text = url.searchParams.get('text');
-  const to = url.searchParams.get('to');
+  let to = url.searchParams.get('to');
 
   if (!text || !to) {
     return new Response(JSON.stringify({ error: 'Missing text or to parameter' }), {
@@ -11,6 +11,8 @@ Deno.serve(async (req: Request) => {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  if (to === 'jp') to = 'ja';
 
   try {
     const result = await translate(text, { to });
