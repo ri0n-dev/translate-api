@@ -24,4 +24,4 @@ serve(async (req: Request) => {
       headers: { 'Content-Type': 'application/json' },
     });
   }
-}, { port: 8000 });
+});
