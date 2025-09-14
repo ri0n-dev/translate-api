@@ -1,4 +1,4 @@
-import { translate } from '@vitalets/google-translate-api';
+import translate from 'npm:translate-google-api';
 
 Deno.serve(async (req: Request) => {
   const url = new URL(req.url);
@@ -15,8 +15,8 @@ Deno.serve(async (req: Request) => {
   if (to === 'jp') to = 'ja';
 
   try {
-    const result = await translate(text, { to });
-    return new Response(JSON.stringify({ translated: result.text, to }), {
+    const result = await translate(text, { from: 'en', to });
+    return new Response(JSON.stringify({ translated: result[0], to }), {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {

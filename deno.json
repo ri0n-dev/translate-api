@@ -5,7 +5,7 @@
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",
-    "@vitalets/google-translate-api": "npm:@vitalets/google-translate-api",
+    "translate-google-api": "npm:translate-google-api@1.0.4",
     "std/": "https://deno.land/std@0.208.0/"
   }
 }
